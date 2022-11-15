@@ -84,10 +84,11 @@ const cat = {
   isMale: false,
   isFurnitureDamage: true,
 };
-
-// for (keys in cat) {
-
-// }
+console.group('for...in in cat :');
+for (let prop in cat) {
+  console.log('cat.' + prop + ' = ' + cat[prop] + ';');
+}
+console.groupEnd();
 
 /*
     Створити функцію-конструктор для створення об'єктів книг з властивостями:
