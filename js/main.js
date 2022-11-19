@@ -30,6 +30,9 @@ const customer = {
     house: 'NumberOfHouse',
     flat: 'NumberOfFlat',
   },
+  changePhoneNumber(newNumber) {
+    this.tel = newNumber;
+  },
 };
 
 // console.dir(customer); // object output test
@@ -39,11 +42,7 @@ console.group("Customer's adress :");
 console.dir(customer.adress);
 console.groupEnd();
 
-function changePhoneNumber() {
-  customer.tel = '+380990077003';
-}
-
-changePhoneNumber(customer);
+customer.changePhoneNumber('+380999004009');
 
 customer.isMale = true; // add property isMale to customer
 delete customer.adress; // delete property adress from customer
@@ -84,9 +83,10 @@ const cat = {
   isMale: false,
   isFurnitureDamage: true,
 };
+
 console.group('for...in in cat :');
-for (let prop in cat) {
-  console.log('cat.' + prop + ' = ' + cat[prop] + ';');
+for (const key in cat) {
+  console.log('cat.' + key + ' = ' + cat[key] + ';');
 }
 console.groupEnd();
 
@@ -102,3 +102,30 @@ console.groupEnd();
       для обчислення віку книги (у роках),
       для зміни ціни книги.
 */
+
+function Book(author, name, year, publisher, price) {
+  this.author = author;
+  this.name = name;
+  this.year = year;
+  this.publisher = publisher;
+  this.price = price;
+  this.changePrice = function (newPrice) {
+    this.price = newPrice;
+  };
+}
+
+const book1 = new Book(
+  'Sir Arthur Conan Doyle',
+  'The Memoirs of Sherlock Holmes',
+  1893,
+  'George Newnes Ltd, London',
+  '20'
+);
+
+function getAgeOfBook(currentAge) {
+  return `${currentAge} - ${this.year}`;
+}
+
+book1.changePrice('75');
+
+console.dir(book1);
