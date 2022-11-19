@@ -112,6 +112,10 @@ function Book(author, name, year, publisher, price) {
   this.changePrice = function (newPrice) {
     this.price = newPrice;
   };
+  this.ageOfBook = function () {
+    const currentYear = new Date().getFullYear();
+    return currentYear - this.year;
+  };
 }
 
 const book1 = new Book(
@@ -122,10 +126,7 @@ const book1 = new Book(
   '20'
 );
 
-function getAgeOfBook(currentAge) {
-  return `${currentAge} - ${this.year}`;
-}
-
 book1.changePrice('75');
 
 console.dir(book1);
+console.log('Age of this book = ' + book1.ageOfBook());
