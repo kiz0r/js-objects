@@ -126,10 +126,10 @@ const book1 = new Book(
   'The Memoirs of Sherlock Holmes',
   1893,
   'George Newnes Ltd, London',
-  '20'
+  20
 );
 
-book1.changePrice('75');
+book1.changePrice(75);
 
 console.dir(book1);
 console.log('Age of this book = ' + book1.ageOfBook());
