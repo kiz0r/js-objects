@@ -33,13 +33,16 @@ const customer = {
   changePhoneNumber(newNumber) {
     this.tel = newNumber;
   },
+  adressOutput() {
+    return `${this.adress.country}, ${this.adress.city}, ${this.adress.street}, ${this.adress.house}, ${this.adress.flat}`;
+  },
 };
 
 // console.dir(customer); // object output test
 
 // output adress of customer
 console.group("Customer's adress :");
-console.dir(customer.adress);
+console.log('This customer lives by next adress : ', customer.adressOutput());
 console.groupEnd();
 
 customer.changePhoneNumber('+380999004009');
